@@ -2,10 +2,18 @@ class UsersController < ApplicationController
 
 
 get '/signup' do
+    if Helpers.is_logged_in?(session)
+        user = Helpers.current_user(session)
+        redirect to "/users/#{user.id}"
+    end 
     erb :'users/signup'
 end 
 
 get '/login' do
+    if Helpers.is_logged_in?(session)
+        user = Helpers.current_user(session)
+        redirect to "/users/#{user.id}"
+    end
     erb :'users/login'
 end
 
@@ -14,7 +22,8 @@ post '/login' do
     if user && user.authenticate(params[:password])
         session[:user_id] = user.id
         redirect to "/users/#{user.id}"
-
+    else
+        redirect to '/signup'
     end
 end
 
