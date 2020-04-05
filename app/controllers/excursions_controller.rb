@@ -1,7 +1,12 @@
 class ExcursionsController < ApplicationController
 
 
-get '/excursions/new' do
+    get '/excursions' do
+        @excursion = Excursion.all
+        erb :"/excursions/index"
+    end
+
+    get '/excursions/new' do
     if !Helpers.is_logged_in?(session)
         redirect to '/'
     end
