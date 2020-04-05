@@ -1,0 +1,7 @@
+<h3><%= @user.username %></h3>
+
+<ul>
+    <% @excursions.each do |excursion| %>
+       <li><a href="/excursions/<%excursion.id%>"> <%= excursion.name %> </a></li>
+    <%end%>
+</ul>
