@@ -2,3 +2,8 @@
 
 <p><%= @excursion.description</p>
 <p><%= @excursion.days_duration</p>
+
+
+<% if Helpers.current_user(session) == @recipe.user %>
+<a href="/excursions/<%=@recipe.id%>/edit">Edit Recipe</a>
+

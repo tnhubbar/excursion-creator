@@ -34,6 +34,24 @@ get 'excursions/:id' do
     erb :'excursions/show'
 end
 
+get '/excursions/:id/edit' do
+    if !Helpers.is_logged_in?(session) || if @excursion.user != Helpers.current_user(session)
+        redirect to '/'
+    end
+    @excursion = Excursion.find_by(id: params[:id])
+    erb :'/excursions/edit'
+end
+
+patch '/excursions/:id' do
+  excursion = Excursion.find_by(id: params[:id])
+  if excursion && excursion.user == Helpers.current_user(session)
+    excursion.update(name: params[:name], description: params[:description], days_duration: params[:days_duration])
+    redirect to "/excursions/#{excursion.id}"
+  else 
+    redirect to "/excursions"
+  end
+end
+
 
 
 

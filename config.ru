@@ -5,5 +5,6 @@ require './config/environment'
 #end
 
 use Rack::MethodOverride
+use ExcursionsController
 use UsersController
 run ApplicationController
