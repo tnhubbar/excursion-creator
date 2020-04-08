@@ -17,9 +17,9 @@
     <div class="wrapper">
       <% if Helpers.is_logged_in?(session)%>
         <p class="links"><a href="/logout" class="logout">Log Out</a></p>
-        <p class="links"><a href="/users/<%=Helpers.current_user(session).id%> if Helpers.is_logged_in?(session)">My Excursions</a></p>
+        <p class="links"><a href="/users/<%= Helpers.current_user(session).id%>">My Excursions</a></p>
         <p class="links"><a href="/excursions/new">New Excursion</a></p>
-        <p class="links"><a href="#">All Excursions</a></p>
+        <p class="links"><a href="/excursions">All Excursions</a></p>
         <p class="links"><a href="/users">All Users</a></p>
       <%end%>
         <%= yield %>

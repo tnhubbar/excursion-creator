@@ -1,8 +1,8 @@
 class ExcursionsController < ApplicationController
 
 
-    get '/excursions' do
-        @excursion = Excursion.all
+    get '/excursions/' do
+        @excursions = Excursion.all
         erb :"/excursions/index"
     end
 
@@ -14,7 +14,7 @@ class ExcursionsController < ApplicationController
 end
 
 
-post '/excursions' do
+post '/excursions/' do
     excursion = Excursion.create(params)
     user = Helpers.current_user(session)
     excursion.user = user
@@ -22,7 +22,7 @@ post '/excursions' do
     redirect to "/users/#{user.id}"
 end
 
-get 'excursions/:id' do
+get '/excursions/:id' do
     if !Helpers.is_logged_in?(session)
         redirect to '/'
     end 
@@ -35,10 +35,11 @@ get 'excursions/:id' do
 end
 
 get '/excursions/:id/edit' do
+    @excursion = Excursion.find_by(id: params[:id])
     if !Helpers.is_logged_in?(session) || if @excursion.user != Helpers.current_user(session)
         redirect to '/'
     end
-    @excursion = Excursion.find_by(id: params[:id])
+end
     erb :'/excursions/edit'
 end
 
@@ -52,7 +53,12 @@ patch '/excursions/:id' do
   end
 end
 
-
-
+delete '/excursions/:id/delete' do
+    @excursion = Excursion.find_by_id(params[:id])
+    if @excursion && @excursion.user == Helpers.current_user(session)
+        @excursion.delete
+        redirect to "/"
+    end
+end
 
 end

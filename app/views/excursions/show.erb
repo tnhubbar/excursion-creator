@@ -1,9 +1,19 @@
 <h3><%= @excursion.name %></h3>
 
-<p><%= @excursion.description</p>
-<p><%= @excursion.days_duration</p>
+<p>Description of Tour: <%= @excursion.description%></p>
+<p>Length of Tour: <%= @excursion.days_duration%></p>
 
+<h1> Places in Excursion</h1>
+<% @places.each do |place| %>
+  <p>Name: <%= course.name %></p>
+  <p>Description:<%= course.description %></p>
+  <p>Activities:<%= course.activities %> </p>
+<% if Helpers.current_user(session) == @excursion.user %>
+<a href="/excursions/<%=@excursion.id%>/edit">Edit Excursion</a>
 
-<% if Helpers.current_user(session) == @recipe.user %>
-<a href="/excursions/<%=@recipe.id%>/edit">Edit Recipe</a>
+<form action="/excursions/<%=@excursion.id%>/delete" method="post">
+  <input type="hidden" name="_method" value="delete"> 
+  <input type="submit" value="delete">
+</form>
 
+<%end%> 

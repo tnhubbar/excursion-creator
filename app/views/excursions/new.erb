@@ -1,11 +1,41 @@
 <h3>Add a new Excursion</h3>
-<form action="/excursions" method="post">
+<form action="/excursions/" method="post">
     <label>Name: </label>
-    <input type="text" name="name" /><br/>
+    <input type="text" name="excursion[name]" /><br/>
     <label>Description: </label>
-    <textarea rows="12" cols="50" type="text" name="description"></textarea><br/>
-    <label>Duration in Days </label>
-    <input type="text" name="days_duration" /><br/>
+    <textarea rows="12" cols="50" type="text" name="excursion[description]"></textarea><br/>
+    <label>Duration in Days: </label>
+    <input type="text" name="excursion[days_duration]" /><br/>
+    <label>Place:</label>
+    <input type="text" name="excursion[place][][name]" /><br/>
+    <label>Place Description:</label>
+    <input type="text" name="excursion[place][][description]" /><br/>
+    <label>Place Activities:</label>
+    <input type="text" name="excursion[place][][activities]" /><br/>
+     <label>Place:</label>
+    <input type="text" name="excursion[place][][name]" /><br/>
+    <label>Place Description:</label>
+    <input type="text" name="excursion[place][][description]" /><br/>
+    <label>Place Activities:</label>
+    <input type="text" name="excursion[place][][activities]" /><br/>
+     <label>Place:</label>
+    <input type="text" name="excursion[place][][name]" /><br/>
+    <label>Place Description:</label>
+    <input type="text" name="excursion[place][][description]" /><br/>
+    <label>Place Activities:</label>
+    <input type="text" name="excursion[place][][activities]" /><br/>
+     <label>Place:</label>
+    <input type="text" name="excursion[place][][name]" /><br/>
+    <label>Place Description:</label>
+    <input type="text" name="excursion[place][][description]" /><br/>
+    <label>Place Activities:</label>
+    <input type="text" name="excursion[place][][activities]" /><br/>
+     <label>Place:</label>
+    <input type="text" name="excursion[place][][name]" /><br/>
+    <label>Place Description:</label>
+    <input type="text" name="excursion[place][][description]" /><br/>
+    <label>Place Activities:</label>
+    <input type="text" name="excursion[place][][activities]" /><br/>
     <input type="submit" value="Save">
 
 </form>

@@ -4,12 +4,12 @@
 <form action="/excursions/<%=@excursion.id%>%" method="post">
   <input type="hidden" name="_method" value="patch">
      <label>Name: </label>
-    <input type="text" name="name" value="<%=@recipe.name%>"/><br/>
+    <input type="text" name="name" value="<%=@excursion.name%>"/><br/>
     <label>Description: </label>
-    <textarea rows="12" cols="50" type="text" name="description", value="<%=@recipe.description%></textarea><br/>
+    <textarea rows="12" cols="50" type="text" name="description", value="<%=@excursion.description%></textarea><br/>
     <label>Duration in Days </label>
-    <input type="text" name="days_duration" value="<%=@recipe.days_duration%>"><br/>
-    <input type="submit" value="Edit Recipe">
+    <input type="text" name="days_duration" value="<%=@excursion.days_duration%>"><br/>
+    <input type="submit" value="Edit Excursion">
 
 
 </form>
