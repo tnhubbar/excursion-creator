@@ -15,10 +15,19 @@ end
 
 
 post '/excursions/' do
-    excursion = Excursion.create(params)
-    user = Helpers.current_user(session)
-    excursion.user = user
+    excursion = Excursion.new(name: params[:excursion][:name], description: params[:excursion][:description], days_duration: params[:excursion][:days_duration])
+    user = Helpers.current_user(session) 
+    excursion.user = user 
     excursion.save
+    
+    params[:excursion][:places].each do |place|
+       p = Place.create(place)
+       p.excursion = excursion
+       p.save
+    end
+
+    @places = Place.all 
+
     redirect to "/users/#{user.id}"
 end
 
@@ -27,11 +36,11 @@ get '/excursions/:id' do
         redirect to '/'
     end 
     @excursion = Excursion.find_by(id: params[:id])
+    @places = @excursion.places
     if !@excursion
         redirect to '/excursions'
     end
-
-    erb :'excursions/show'
+    erb :'/excursions/show'
 end
 
 get '/excursions/:id/edit' do

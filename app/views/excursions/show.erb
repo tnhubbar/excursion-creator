@@ -5,15 +5,16 @@
 
 <h1> Places in Excursion</h1>
 <% @places.each do |place| %>
-  <p>Name: <%= course.name %></p>
-  <p>Description:<%= course.description %></p>
-  <p>Activities:<%= course.activities %> </p>
+  <p>Name: <%= place.name %></p>
+  <p>Description:<%= place.description %></p>
+  <p>Activities:<%= place.activities %> </p>
+  <%end%>
 <% if Helpers.current_user(session) == @excursion.user %>
 <a href="/excursions/<%=@excursion.id%>/edit">Edit Excursion</a>
+<a href="/users/<%= Helpers.current_user(session).id%>">Back to your Excursions</a>
 
 <form action="/excursions/<%=@excursion.id%>/delete" method="post">
   <input type="hidden" name="_method" value="delete"> 
   <input type="submit" value="delete">
 </form>
-
-<%end%> 
+<%end%>

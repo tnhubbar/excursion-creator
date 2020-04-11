@@ -1,7 +1,10 @@
-<h3><%= @user.username %></h3>
+<h3>Hello, <%= @user.username %></h3>
 
+<p>If you haven't already, please create a new excursion or add to your existing list by clicking the "New Excursion" link at the top of the page. </p>
+
+<p>Here is a list of your saved excursions so far:</p>
 <ul>
     <% @excursions.each do |excursion| %>
-       <li><a href="/excursions/<%excursion.id%>"> <%= excursion.name %> </a></li>
+       <li><a href="/excursions/<%=excursion.id%>"> <%= excursion.name %> </a></li>
     <%end%>
-</ul>
+</ul> 
