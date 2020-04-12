@@ -1,13 +1,13 @@
 <h3><%= @excursion.name %></h3>
 
-<p>Description of Tour: <%= @excursion.description%></p>
-<p>Length of Tour: <%= @excursion.days_duration%></p>
+<p><strong>Description of Tour:</strong> <%= @excursion.description%></p>
+<p><strong>Length of Tour:</strong> <%= @excursion.days_duration%></p>
 
 <h1> Places in Excursion</h1>
 <% @places.each do |place| %>
-  <p>Name: <%= place.name %></p>
-  <p>Description:<%= place.description %></p>
-  <p>Activities:<%= place.activities %> </p>
+  <p><strong>Name:</strong> <%= place.name %></p>
+  <p><strong>Description:</strong><%= place.description %></p>
+  <p><strong>Activities:</strong><%= place.activities %> </p>
   <%end%>
 <% if Helpers.current_user(session) == @excursion.user %>
 <a href="/excursions/<%=@excursion.id%>/edit">Edit Excursion</a>

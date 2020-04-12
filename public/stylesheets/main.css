@@ -13,18 +13,20 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue;
+    background-color: black;
     color: #333;
     font-family: Sans-Serif;
-    line-height: 18px;
+    line-height: 40px;
   }
 
+
+
   .wrapper {
-    background: #fff;
-    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    background: yellow;
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.671);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
-    margin: 16px auto;
+    margin: 30px auto;
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
@@ -61,7 +63,7 @@
   }
 
   .sidebar {
-    background: #eee;
+    background: yellow;
     border: 1px solid #ccc;
     float: right;
     padding: 2.08333333333%; /* 5px / 240px */
@@ -112,4 +114,32 @@
     font-size: 18px;
     line-height: 24px;
   }
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color:black;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
 }

@@ -3,13 +3,13 @@
 
 <form action="/excursions/<%=@excursion.id%>" method="post">
   <input type="hidden" name="_method" value="patch">
-     <label>Name: </label>
+     <label><strong>Name:</strong> </label>
     <input type="text" name="name" value="<%=@excursion.name%>"/><br/>
     
-    <label>Description: </label>
-    <textarea rows="12" cols="30" type="text" name="description" value="<%=@excursion.description%>"></textarea><br/>
+    <label><strong>Description:</strong> </label><br/>
+    <textarea rows="8" cols="30" type="text" name="description" value="<%=@excursion.description%>"></textarea><br/>
    
-    <label>Duration in Days: </label>
+    <label><strong>Duration in Days:</strong> </label>
     <input type="text" name="days_duration" value="<%=@excursion.days_duration%>"><br/><br/>
 
     <h2>Places to Vist on Excursion</h2>
