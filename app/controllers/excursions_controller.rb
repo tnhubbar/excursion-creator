@@ -58,7 +58,7 @@ patch '/excursions/:id' do
     excursion.update(name: params[:name], description: params[:description], days_duration: params[:days_duration])
     redirect to "/excursions/#{excursion.id}"
   else 
-    redirect to "/excursions"
+    redirect to "/excursions/"
   end
 end
 
@@ -66,7 +66,7 @@ delete '/excursions/:id/delete' do
     @excursion = Excursion.find_by_id(params[:id])
     if @excursion && @excursion.user == Helpers.current_user(session)
         @excursion.delete
-        redirect to "/"
+        redirect to "/excursions/"
     end
 end
 
